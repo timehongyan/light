@@ -54,7 +54,7 @@ class TypeController extends Controller
     public function create()
     {
 
-        echo 123;die;
+        // echo 123;die;1
         // 第一种方法
         /*if($_GET['pid'] == 0){
             $pid = 0;
