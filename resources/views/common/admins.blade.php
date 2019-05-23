@@ -160,7 +160,7 @@
                 <div id="mws-user-functions">
                     <div id="mws-username">
 
-                        {{$res->username}}
+                        {{--$res->username--}}
                     </div>
                     <ul>
                         <li><a href="/admins/header">修改头像</a></li>
