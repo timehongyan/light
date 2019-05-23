@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <!-- Viewport Metatag -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
@@ -37,44 +37,135 @@
 <link rel="stylesheet" type="text/css" href="/admin/css/style.css" media="screen">
 
 <title>@yield('title')</title>
+<style type="text/css">
+    body, 
+#mws-container
+{
+    background-image:url('/admin/images/core/bg/diamond_upholstery.png');
+}
+
+#mws-sidebar, 
+#mws-sidebar-bg, 
+#mws-header, 
+.mws-panel .mws-panel-header, 
+#mws-login, 
+#mws-login .mws-login-lock, 
+.ui-accordion .ui-accordion-header, 
+.ui-tabs .ui-tabs-nav, 
+.ui-datepicker, 
+.fc-event-skin, 
+.ui-dialog .ui-dialog-titlebar, 
+.jGrowl .jGrowl-notification, .jGrowl .jGrowl-closer, 
+#mws-user-tools .mws-dropdown-menu .mws-dropdown-box, 
+#mws-user-tools .mws-dropdown-menu.open .mws-dropdown-trigger
+{
+    background-color:#ff4f03;
+}
+
+#mws-header
+{
+    border-color:#69bf00;
+}
+
+.mws-panel .mws-panel-header span, 
+#mws-navigation ul li.active a, 
+#mws-navigation ul li.active span, 
+#mws-user-tools #mws-username, 
+#mws-navigation ul li .mws-nav-tooltip, 
+#mws-user-tools #mws-user-info #mws-user-functions #mws-username, 
+.ui-dialog .ui-dialog-title, 
+.ui-state-default, 
+.ui-state-active, 
+.ui-state-hover, 
+.ui-state-focus, 
+.ui-state-default a, 
+.ui-state-active a, 
+.ui-state-hover a, 
+.ui-state-focus a
+{
+    color:#10e8b9;
+    text-shadow:0 0 6px rgba(42, 59, 212, 0.5);
+}
+
+#mws-searchbox .mws-search-submit, 
+.mws-panel .mws-panel-header .mws-collapse-button span, 
+.dataTables_wrapper .dataTables_paginate .paginate_disabled_previous, 
+.dataTables_wrapper .dataTables_paginate .paginate_enabled_previous, 
+.dataTables_wrapper .dataTables_paginate .paginate_disabled_next, 
+.dataTables_wrapper .dataTables_paginate .paginate_enabled_next, 
+.dataTables_wrapper .dataTables_paginate .paginate_active, 
+.mws-table tbody tr.odd:hover td, 
+.mws-table tbody tr.even:hover td, 
+.ui-slider-horizontal .ui-slider-range, 
+.ui-slider-vertical .ui-slider-range, 
+.ui-progressbar .ui-progressbar-value, 
+.ui-datepicker td.ui-datepicker-current-day, 
+.ui-datepicker .ui-datepicker-prev, 
+.ui-datepicker .ui-datepicker-next, 
+.ui-accordion-header .ui-accordion-header-icon, 
+.ui-dialog-titlebar-close
+{
+    background-color:#69bf00;
+}
+
+</style>
 
 </head>
 
 <body>
-	<!-- Header -->
-	<div id="mws-header" class="clearfix">
+
+    <!-- Header -->
+    <div id="mws-header" class="clearfix">
     
-    	<!-- Logo Container -->
-    	<div id="mws-logo-container">
+        <!-- Logo Container -->
+        <div id="mws-logo-container">
         
-        	<!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
-        	<div id="mws-logo-wrap">
-            	<!-- <img src="/admin/images/mws-logo.png" alt="mws admin"> -->
+            <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
+            <div id="mws-logo-wrap">
+                <!-- <img src="/admin/images/mws-logo.png" alt="mws admin"> -->
 
                 <h3 style='color:white'>lamp214后台</h3>
-			</div>
+            </div>
         </div>
-        
+        @php
+            $uid = session('uid');
+
+            $rs =  DB::table('users')
+            ->join('message','users.id','=','message.uid')
+            
+            ->select('users.*','message.header')
+            ->where('users.id','=',$uid)
+            ->first();
+
+             $res = DB::table('users')->where('id',$uid)->first();
+        @endphp
         <!-- User Tools (notifications, logout, profile, change password) -->
         <div id="mws-user-tools" class="clearfix">
         
             <!-- User Information and functions section -->
-            <div id="mws-user-info" class="mws-inset">
+            <a<div id="mws-user-info" class="mws-inset">
             
-            	<!-- User Photo -->
-            	<div id="mws-user-photo">
-                	<img src="/admin/example/profile.jpg" alt="User Photo">
+                <!-- User Photo -->
+                <div id="mws-user-photo">
+                    @if($rs)
+                        <a href="{{$rs->header}}" target="_blank"><img src="{{$rs->header}}" alt="User Photo"></a>
+                    @else
+                        <img src="/uploads/img_44231558337773.jpg" alt="User Photo"></a>
+                        
+                        
+                    @endif
                 </div>
                 
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
-                        Hello, John Doe
+
+                        {{$res->username}}
                     </div>
                     <ul>
-                    	<li><a href="#">修改头像</a></li>
-                        <li><a href="#">修改密码</a></li>
-                        <li><a href="index.html">退出</a></li>
+                        <li><a href="/admins/header">修改头像</a></li>
+                        <li><a href="/admins/pass">修改密码</a></li>
+                        <li><a href="/admins/logout">退出</a></li>
                     </ul>
                 </div>
             </div>
@@ -92,6 +183,39 @@
         <div id="mws-sidebar">
             <!-- Main Navigation -->
             <div id="mws-navigation">
+
+                 <ul>
+                    <li>
+                        <a href="#"><i class="icon-users"></i>管理员管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admins/user/create">添加管理员</a></li>
+                            <li><a href="/admins/user">浏览管理员</a></li>
+                        </ul>
+                    </li>
+                   
+                </ul> 
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-user"></i>角色管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admins/role/create">添加角色</a></li>
+                            <li><a href="/admins/role">浏览角色</a></li>
+                        </ul>
+                    </li>
+                   
+                </ul> 
+                 <ul>
+                    <li>
+                        <a href="#"><i class="icon-key"></i>权限管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admins/user/create">添加权限</a></li>
+                            <li><a href="/admins/user">浏览权限</a></li>
+                        </ul>
+                    </li>
+                   
+                </ul> 
+
+                
                 <ul>
                     <li>
                         <a href="#"><i class="icon-archive"></i>分类管理</a>
