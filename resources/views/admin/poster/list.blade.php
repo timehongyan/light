@@ -80,8 +80,13 @@
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"
-                        style="width: 200px;">
+                        style="width: 160px;">
                            广告内容
+                        </th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                        style="width: 40px;">
+                           广告类别
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"
@@ -123,6 +128,19 @@
                             {{$v->content}}
                             
                         </td>
+
+                        <td class=" ">
+                            
+                            <div class="btn-group">
+                                <select class="btn btn-primary dropdown-toggle ty">                                   
+                                    <option value="0" @if($v->type == 0) selected="selected" @endif>首页广告</option>
+                                    <option value="1" @if($v->type == 1) selected="selected" @endif>商品搜索广告</option>
+                                    <option value="2" @if($v->type == 2) selected="selected" @endif>商品列表广告</option>
+                                    <option value="3" @if($v->type == 3) selected="selected" @endif>详情页广告</option>
+                                </select>
+                            </div>
+                        </td>
+
                         <td class=" ">
                             
                             <div class="btn-group">
@@ -227,6 +245,21 @@
                     alert('广告状态修改成功');
                 } else {
                     alert('广告状态修改失败');
+                }
+            })
+        })
+
+        $(".ty").change(function(){
+            var $type = $(this).children('option:selected').val();
+            //获取用户的id
+            var $pid = $(this).parents('tr').find('td').eq(0).text().trim();
+            //发送ajax
+            $.get('/admins/ajaxposlb',{type:$type,pid:$pid},function(data){
+
+                if(data == '1'){
+                    alert('广告类别修改成功');
+                } else {
+                    alert('广告类别修改失败');
                 }
             })
         })

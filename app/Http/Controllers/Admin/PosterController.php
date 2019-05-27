@@ -146,6 +146,27 @@ class PosterController extends Controller
     }
 
     /**
+     * ajax修改
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function ajaxposlb(Request $request)
+    {
+        //获取ajax传过来的数据
+        $rs = $request->only('type');
+
+        $pid = $request->pid;
+
+        $res = Poster::where('id',$pid)->update($rs);
+
+        if($res){
+            echo 1;
+        } else {
+            echo 0;
+        }
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -158,30 +179,26 @@ class PosterController extends Controller
         $this->validate($request, [
             'postername' => 'required|regex:/^[\x{4e00}-\x{9fa5}A-Za-z0-9_]{3,12}$/u',
             'content' => 'required|regex:/^[\x{4e00}-\x{9fa5}A-Za-z0-9_]{3,30}$/u',
-            'url' => 'required',
-            
         ],[
             'postername.required' => '广告商家名不能为空',
             'postername.regex' => '广告商家名格式不正确',
 
             'content.required'=>'广告内容不能为空',
             'content.regex'=>'广告内容格式不正确',
-
-            'url.required'=>'广告图片不能为空'
         ]);
 
         //删除头像
         $res = Poster::find($id);
-        $data = @unlink('.'.$res->url);
-        if(!$data){
-            return back()->with('error','修改失败');
-        }
+        
         //获取数据
         $rs = $request->except('_token','_method');
 
         //处理头像
         if($request->hasFile('url')){
-
+            $data = @unlink('.'.$res->url);
+            if(!$data){
+                return back()->with('error','修改失败');
+            }
             //获取图片上传的信息
             $file = $request->file('url');
 

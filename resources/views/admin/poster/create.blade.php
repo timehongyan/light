@@ -36,19 +36,21 @@
                         </div>
                     </div>
         			
-        			<!-- <div class="mws-form-row">
-        				<label class="mws-form-label">广告等级</label>
+        			<div class="mws-form-row">
+        				<label class="mws-form-label">广告类别</label>
         				<div class="mws-form-item clearfix">
         					<ul class="mws-form-list inline">
-        						<li><label><input type="radio" name='pograde' value='0' checked>  普通广告</label></li>
+        						<li><label><input type="radio" name='type' value='0' checked>  首页广告</label></li>
 
-        						<li><label><input type="radio" name='pograde' value='1'> 失效广告</label></li>
+        						<li><label><input type="radio" name='type' value='1'> 商品搜索广告</label></li>
 
-                                <li><label><input type="radio" name='pograde' value='2'> 置顶广告</label></li>
+                                <li><label><input type="radio" name='type' value='2'> 商品列表广告</label></li>
+
+                                <li><label><input type="radio" name='type' value='3'> 详情页广告</label></li>
         					</ul>
         				</div>
         			</div>
-        		</div> -->
+        		</div>
 
                 <div class="mws-form-row">
                     <label class="mws-form-label" style="width: 157px;float: left;">广告内容 </label>

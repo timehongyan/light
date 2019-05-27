@@ -47,6 +47,19 @@
                     </div>
 
                     <div class="mws-form-row">
+                        <label class="mws-form-label">广告类别</label>
+                            <div class="mws-form-item clearfix">
+                                <ul class="mws-form-list inline">
+                                    <li><label><input type="radio" name='type' value='0' @if($rs->type==0)checked @endif> 首页广告</label></li>
+                                    <li><label><input type="radio" name='type' value='1' @if($rs->type==1)checked @endif> 商品搜索广告</label></li>
+                                    <li><label><input type="radio" name='type' value='2' @if($rs->type==2)checked @endif> 商品列表广告</label></li>
+                                    <li><label><input type="radio" name='type' value='3' @if($rs->type==3)checked @endif> 详情页广告</label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mws-form-row">
         				<label class="mws-form-label">广告状态</label>
 	        				<div class="mws-form-item clearfix">
 	        					<ul class="mws-form-list inline">
