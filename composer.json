@@ -26,7 +26,8 @@
             "App\\": "app/"
         },
         "files": [
-            "app/Function/getcate.php"
+            "app/Function/getcate.php",
+            "app/Function/getstatus.php"
         ]
     },
     "autoload-dev": {

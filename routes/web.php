@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Home\IndexController@index');
 // 获取配置信息
 Route::get('/config', function (){
 	return Config::get('app.timezone');
@@ -28,21 +26,7 @@ Route::get('admins/captcha', 'Admin\LoginController@captcha');
 
 
 Route::group([], function(){
-	Route::get('/admin/index', 'Admin\IndexController@index');
-	//商品分类查看
-	Route::resource('/admin/type', 'Admin\TypeController');
-	// 分类状态路由
-	Route::get('/admin/ajaxup', 'Admin\TypeController@ajaxup');
-
-	// ajax请求路由
-	//商品名称无刷新修改
-	Route::get('/admin/goods/ajaxgs', 'Admin\GoodsController@ajaxgs');
-	//商品图片ajax删除
-	Route::get('/admin/goods/ajaxdelete', 'Admin\GoodsController@ajaxdelete');
-
-
-	//商品详情
-	Route::resource('/admin/goods', 'Admin\GoodsController');
+	
 });
 
 
@@ -79,7 +63,36 @@ Route::group(['middleware'=>'/admins/login'], function (){
 
 	//角色管理
 	Route::resource('admins/role', 'Admin\RoleController');
+	Route::get('/admin/index', 'Admin\IndexController@index');
+	//商品分类查看
+	Route::resource('/admin/type', 'Admin\TypeController');
+	// 分类状态路由
+	Route::get('/admin/ajaxup', 'Admin\TypeController@ajaxup');
 
+	// ajax请求路由
+	//商品名称无刷新修改
+	Route::get('/admin/goods/ajaxgs', 'Admin\GoodsController@ajaxgs');
+	//商品图片ajax删除
+	Route::get('/admin/goods/ajaxdelete', 'Admin\GoodsController@ajaxdelete');
+
+
+	//商品详情
+	Route::resource('/admin/goods', 'Admin\GoodsController');
+
+	//后台友情链接
+	Route::resource('admin/link','Admin\LinkController');
+	//轮播图
+	Route::resource('admin/lunbo','Admin\LunboController');
+
+
+	//广告管理
+	Route::resource('admins/poster','Admin\PosterController');
+	Route::get('admins/ajaxposter','Admin\PosterController@ajaxposter');
+	//订单管理
+	Route::resource('admins/orders','Admin\OrdersController');
+	Route::get('admins/ajaxorders','Admin\OrdersController@ajaxorders');
+	//订单详情
+	Route::get('admins/detail/{oid}','Admin\OrdersController@detail');
 });
 
 
@@ -87,7 +100,9 @@ Route::group(['middleware'=>'/admins/login'], function (){
 
 //前台
 // Route::group([], function (){
-	Route::get('home/index', 'Home\IndexController@index');
+	Route::get('/index', 'Home\IndexController@index');
 // });
 // 前台首页
 
+// 商品详情
+Route::get('/home/details', 'Home\IndexController@details');

@@ -224,4 +224,29 @@ class TypeController extends Controller
             return back()->with('error','删除失败');
         }
     }
+
+    /**
+     *  无限极分类的递归
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function getfenleiMessage($pid)
+    {
+
+        //获取顶级的分类
+        $cate = Type::where('pid',$pid)->get();
+        
+        $arr = [];
+
+        foreach($cate as $k=>$v){
+
+            if($v->pid==$pid){
+
+                $v->sub=self::getfenleiMessage($v->id);
+
+                $arr[]=$v;
+            }
+        }  
+        return $arr;
+    }
 }

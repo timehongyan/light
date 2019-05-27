@@ -15,4 +15,5 @@ return array(
     'f0906e6318348a765ffb6eb24e0d0938' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     '88055693ba5302b6b3c5a2a9447416ea' => $baseDir . '/app/Function/getcate.php',
+    'c9f008ad392dac21251cd3b33306452d' => $baseDir . '/app/Function/getstatus.php',
 );

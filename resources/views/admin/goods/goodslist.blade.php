@@ -111,7 +111,7 @@
                            {{$v->id}}
                         </td>
                         <td class=" ">
-                            {{$v->tid}}
+                            {{getCateName($v->tid)}}
                         </td>
                         <td class=" gname">
                             {{$v->gname}}
