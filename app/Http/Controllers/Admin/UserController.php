@@ -9,11 +9,101 @@ use App\Http\Requests\FormsRequest;
 use App\Http\Requests\FormuRequest;
 use App\Model\Admin\message;
 use App\Model\Admin\User;
+
+use App\Model\Admin\Role;
 use DB;
 use Hash;
 
 class UserController extends Controller
 {
+
+
+        /**
+     * 给用户添加角色的页面
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function user_role(Request $request)
+    {
+        //把用户的信息显示出来
+        $uid = $request->id;
+
+        $us = User::find($uid); 
+
+        //获取所有的角色
+        $roles = Role::all();
+
+        // 查找当前登录的管理员 具有哪些角色多对多
+        $ur = $us->user_role()->get();
+
+        $urr = [];
+        foreach($ur as $k => $v){
+
+            $urr[] = $v->id;
+        }
+
+        return view('admin.user.userrole',[
+            'title'=>'用户角色添加页面',
+            'us'=>$us,
+            'roles'=>$roles,
+            'urr'=>$urr
+
+        ]);
+    }
+
+
+      /**
+     * 处理用户和角色方法
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function do_user_role(Request $request)
+    {
+
+        //获取用户的id
+        $uid = $request->id;
+
+
+        //根据用户的id把user_role里面的相关信息 进行删除
+        //就是删除之前的角色
+        // DB::table('user_role')->where('userid',$uid)->delete();
+
+        //获取角色的id
+        $rid = $request->roleid;
+
+        //遍历角色
+        $ur = [];
+        foreach($rid as $k => $v){
+            $arr = [];
+            $arr['userid'] =  $uid;
+            $arr['roleid'] = $v;
+
+            $ur[] = $arr;
+
+            // array_push()
+            // 
+          
+        }
+
+
+
+
+        //往数据表user_role里面添加数据
+        $data = DB::table('user_role')->insert($ur);
+
+        if($data){
+
+            return redirect('/admins/user')->with('success','添加角色成功');
+        } else {
+
+            return back();
+        }
+
+
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -95,7 +185,6 @@ class UserController extends Controller
         //获取表单传过来的信息 返回的数据是一个数组
        
         $rs = $request->except('_token','repass','profile');
-
 
 
         $rs['addtime'] = time();
@@ -189,13 +278,14 @@ class UserController extends Controller
         ->select('users.*','message.header')
         ->where('users.id','=',$id)
         ->first();
+
         if($rs){
             $res = Message::where('uid',$id)->first();
+
             unlink('.'.$res->header);
             $data = Message::where('uid',$id)->delete();
-        } else {
-            $data = User::destroy($id);
-        }
+        } 
+          $data = User::destroy($id);
         //
         //根据id删除数据
         

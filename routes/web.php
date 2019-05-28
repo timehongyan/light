@@ -11,6 +11,10 @@
 |
 */
 
+<<<<<<< HEAD
+=======
+Route::get('/', 'Home\IndexController@index');
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
 // 获取配置信息
 Route::get('/config', function (){
 	return Config::get('app.timezone');
@@ -22,17 +26,30 @@ Route::get('/config', function (){
 Route::get('/admins/login', 'Admin\LoginController@login');
 Route::post('admins/dologin', 'Admin\LoginController@dologin');
 Route::get('admins/captcha', 'Admin\LoginController@captcha');
+Route::get('/admins/showper','Admin\RoleController@showper');	
+
+
+<<<<<<< HEAD
+//后台管理
+//后台中间件
+Route::group(['middleware'=>'/admins/login'], function (){
+=======
+
 
 
 //后台管理
 //后台中间件
-Route::group(['middleware'=>'/admins/login'], function (){
+//,'roleper'
+Route::group(['middleware'=>['/admins/login']], function (){
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
 	//后台首页
 	Route::any('/admins', 'Admin\IndexController@index');
 
 
 	//后台用户
 	Route::resource('/admins/user', 'Admin\UserController');
+	Route::get('/admins/userrole','Admin\UserController@user_role');
+	Route::post('/admins/douserrole','Admin\UserController@do_user_role');
 	//修改头像
 	Route::get('admins/header', 'Admin\LoginController@header');
 	Route::post('admins/upload', 'Admin\LoginController@upload');
@@ -56,23 +73,54 @@ Route::group(['middleware'=>'/admins/login'], function (){
 	Route::get('admins/alink', 'Admin\AjaxController@alink');
 
 
+
 	//角色管理
 	Route::resource('admins/role', 'Admin\RoleController');
 
+<<<<<<< HEAD
 
+=======
+	Route::get('admins/roleper', 'Admin\RoleController@role_per');
+	Route::post('/admins/doroleper','Admin\RoleController@doroleper');
+
+
+	//权限管理
+	Route::resource('admins/permission', 'Admin\PermissionController');
+
+
+	Route::get('/admin/index', 'Admin\IndexController@index');
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
 	//商品分类查看
 	Route::resource('/admin/type', 'Admin\TypeController');
 	// 分类状态路由
 	Route::get('/admin/ajaxup', 'Admin\TypeController@ajaxup');
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
 	// ajax请求路由
 	//商品名称无刷新修改
 	Route::get('/admin/goods/ajaxgs', 'Admin\GoodsController@ajaxgs');
 	//商品图片ajax删除
 	Route::get('/admin/goods/ajaxdelete', 'Admin\GoodsController@ajaxdelete');
+<<<<<<< HEAD
 	//商品详情
 	Route::resource('/admin/goods', 'Admin\GoodsController');
+=======
+
+
+	//商品详情
+	Route::resource('/admin/goods', 'Admin\GoodsController');
+
+	//后台友情链接
+	Route::resource('admin/link','Admin\LinkController');
+	//轮播图
+	Route::resource('admin/lunbo','Admin\LunboController');
+
+
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
 	//广告管理
 	Route::resource('admins/poster','Admin\PosterController');
 	Route::get('admins/ajaxposter','Admin\PosterController@ajaxposter');
@@ -81,15 +129,19 @@ Route::group(['middleware'=>'/admins/login'], function (){
 	Route::get('admins/ajaxorders','Admin\OrdersController@ajaxorders');
 	//订单详情
 	Route::get('admins/detail/{oid}','Admin\OrdersController@detail');
+<<<<<<< HEAD
 	//后台友情链接
 	Route::resource('admin/link','Admin\LinkController');
 	//轮播图
 	Route::resource('admin/lunbo','Admin\LunboController');
+=======
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
 });
 
 
 
 
+<<<<<<< HEAD
 // 前台首页
 Route::get('/','Home\IndexController@index');
 
@@ -104,3 +156,18 @@ Route::group([], function (){
 	Route::post('/home/remcart','Home\CartController@remcart');
 
 });
+=======
+//前台
+// Route::group([], function (){
+	Route::get('/index', 'Home\IndexController@index');
+	// 前台首页
+	Route::get('homes', 'Home\IndexController@index');
+
+	//商品列表
+	Route::resource('homes/goodsList', 'Home\GoodsListController');
+// });
+
+
+// 商品详情
+Route::get('/home/details', 'Home\IndexController@details');
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998

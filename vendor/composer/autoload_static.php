@@ -16,6 +16,13 @@ class ComposerStaticInitf16a63cc08b49fc0455f73f9ab3e547e
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '88055693ba5302b6b3c5a2a9447416ea' => __DIR__ . '/../..' . '/app/Function/getcate.php',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        'c9f008ad392dac21251cd3b33306452d' => __DIR__ . '/../..' . '/app/Function/getstatus.php',
+=======
+>>>>>>> c8cb5953c4d3521bbd72d5c4af441d0f6766a32d
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -321,8 +328,17 @@ class ComposerStaticInitf16a63cc08b49fc0455f73f9ab3e547e
         'App\\Http\\Controllers\\Admin\\InfoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/InfoController.php',
         'App\\Http\\Controllers\\Admin\\LinkController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LinkController.php',
         'App\\Http\\Controllers\\Admin\\LunboController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LunboController.php',
+<<<<<<< HEAD
         'App\\Http\\Controllers\\Admin\\OrdersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/OrdersController.php',
         'App\\Http\\Controllers\\Admin\\PosterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PosterController.php',
+=======
+<<<<<<< HEAD
+        'App\\Http\\Controllers\\Admin\\OrdersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/OrdersController.php',
+        'App\\Http\\Controllers\\Admin\\PosterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PosterController.php',
+=======
+        'App\\Http\\Controllers\\Admin\\PermissionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PermissionController.php',
+>>>>>>> c8cb5953c4d3521bbd72d5c4af441d0f6766a32d
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
         'App\\Http\\Controllers\\Admin\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/RoleController.php',
         'App\\Http\\Controllers\\Admin\\TypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TypeController.php',
         'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
@@ -331,8 +347,15 @@ class ComposerStaticInitf16a63cc08b49fc0455f73f9ab3e547e
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+<<<<<<< HEAD
+        'App\\Http\\Controllers\\HomeIndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeIndexController.php',
         'App\\Http\\Controllers\\Home\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/IndexController.php',
+<<<<<<< HEAD
         'App\\Http\\Controllers\\Home\\LinkController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/LinkController.php',
+=======
+=======
+>>>>>>> c8cb5953c4d3521bbd72d5c4af441d0f6766a32d
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
         'App\\Http\\Controllers\\admin\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LoginController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -346,12 +369,25 @@ class ComposerStaticInitf16a63cc08b49fc0455f73f9ab3e547e
         'App\\Http\\Requests\\FormuRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FormuRequest.php',
         'App\\Http\\Requests\\GoodsRequest' => __DIR__ . '/../..' . '/app/Http/Requests/GoodsRequest.php',
         'App\\Http\\Requests\\StoreBlogPost' => __DIR__ . '/../..' . '/app/Http/Requests/StoreBlogPost.php',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
         'App\\Model\\Admin\\Detail' => __DIR__ . '/../..' . '/app/Model/Admin/Detail.php',
         'App\\Model\\Admin\\Goods' => __DIR__ . '/../..' . '/app/Model/Admin/Goods.php',
         'App\\Model\\Admin\\Goodspicture' => __DIR__ . '/../..' . '/app/Model/Admin/Goodspicture.php',
         'App\\Model\\Admin\\Lunbo' => __DIR__ . '/../..' . '/app/Model/Admin/Lunbo.php',
         'App\\Model\\Admin\\Orders' => __DIR__ . '/../..' . '/app/Model/Admin/Orders.php',
         'App\\Model\\Admin\\Poster' => __DIR__ . '/../..' . '/app/Model/Admin/Poster.php',
+<<<<<<< HEAD
+=======
+=======
+        'App\\Model\\Admin\\Goods' => __DIR__ . '/../..' . '/app/Model/Admin/Goods.php',
+        'App\\Model\\Admin\\Goodspicture' => __DIR__ . '/../..' . '/app/Model/Admin/Goodspicture.php',
+        'App\\Model\\Admin\\Lunbo' => __DIR__ . '/../..' . '/app/Model/Admin/Lunbo.php',
+        'App\\Model\\Admin\\Permission' => __DIR__ . '/../..' . '/app/Model/Admin/Permission.php',
+>>>>>>> c8cb5953c4d3521bbd72d5c4af441d0f6766a32d
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
         'App\\Model\\Admin\\Type' => __DIR__ . '/../..' . '/app/Model/Admin/Type.php',
         'App\\Model\\Admin\\link' => __DIR__ . '/../..' . '/app/Model/Admin/link.php',
         'App\\Model\\Admin\\message' => __DIR__ . '/../..' . '/app/Model/Admin/message.php',

@@ -54,7 +54,15 @@ class TypeController extends Controller
     public function create()
     {
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+        // echo 123;die;1
+=======
+
+>>>>>>> c8cb5953c4d3521bbd72d5c4af441d0f6766a32d
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
         // 第一种方法
         /*if($_GET['pid'] == 0){
             $pid = 0;
@@ -223,5 +231,30 @@ class TypeController extends Controller
 
             return back()->with('error','删除失败');
         }
+    }
+
+    /**
+     *  无限极分类的递归
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function getfenleiMessage($pid)
+    {
+
+        //获取顶级的分类
+        $cate = Type::where('pid',$pid)->get();
+        
+        $arr = [];
+
+        foreach($cate as $k=>$v){
+
+            if($v->pid==$pid){
+
+                $v->sub=self::getfenleiMessage($v->id);
+
+                $arr[]=$v;
+            }
+        }  
+        return $arr;
     }
 }

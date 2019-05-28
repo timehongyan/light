@@ -83,7 +83,7 @@
                     @if($rs)
                         <a href="{{$rs->header}}" target="_blank"><img src="{{$rs->header}}" alt="User Photo"></a>
                     @else
-                        <img src="/uploads/img_44231558337773.jpg" alt="User Photo"></a>
+                        <img src="/default.jpg" alt="User Photo"></a>
                         
                         
                     @endif
@@ -92,8 +92,19 @@
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
+<<<<<<< HEAD
 
+                        {{--$res->username--}}
+=======
+                        @if($res)
                         {{$res->username}}
+
+                        @else
+                        XXXX欢迎您
+
+                        @endif
+                        
+>>>>>>> c8cb5953c4d3521bbd72d5c4af441d0f6766a32d
                     </div>
                     <ul>
                         <li><a href="/admins/header">修改头像</a></li>
@@ -140,8 +151,8 @@
                     <li>
                         <a href="#"><i class="icon-key"></i>权限管理</a>
                         <ul class='closed'>
-                            <li><a href="/admins/user/create">添加权限</a></li>
-                            <li><a href="/admins/user">浏览权限</a></li>
+                            <li><a href="/admins/permission/create">添加权限</a></li>
+                            <li><a href="/admins/permission">浏览权限</a></li>
                         </ul>
                     </li>
                    
@@ -164,6 +175,7 @@
                             <li><a href="/admin/goods/create">添加商品</a></li>
                         </ul>
                     </li>
+<<<<<<< HEAD
 
 
                     <li>
@@ -181,6 +193,10 @@
                     </li>
 
 
+=======
+                </ul>
+                <ul>
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
                     <li>
                         <a href="#"><i class="icon-link""></i>友情链接</a>
                         <ul class='closed'>
@@ -196,7 +212,27 @@
                             
                             <li><a href="/admin/lunbo">浏览轮播图</a></li>
                         </ul>
+<<<<<<< HEAD
                     </li> 
+=======
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i>订单管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admins/orders">浏览订单</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-list"></i>广告管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admins/poster/create">添加广告</a></li>
+                            <li><a href="/admins/poster">浏览广告</a></li>
+                        </ul>
+                    </li>
+                </ul>
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
             </div>         
         </div>
         

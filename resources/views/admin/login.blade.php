@@ -104,10 +104,10 @@
     },3000)*/
 
     setTimeout(function(){
-        $('.mws-form-message').slideUp(2000);
+        $('.mws-form-message').slideUp(1000);
         // $('.mws-form-message').fadeOut(2000);
 
-    },3000)
+    },1200)
 
     // delay(3000).
 

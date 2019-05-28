@@ -14,8 +14,17 @@ return array(
     'App\\Http\\Controllers\\Admin\\InfoController' => $baseDir . '/app/Http/Controllers/Admin/InfoController.php',
     'App\\Http\\Controllers\\Admin\\LinkController' => $baseDir . '/app/Http/Controllers/Admin/LinkController.php',
     'App\\Http\\Controllers\\Admin\\LunboController' => $baseDir . '/app/Http/Controllers/Admin/LunboController.php',
+<<<<<<< HEAD
     'App\\Http\\Controllers\\Admin\\OrdersController' => $baseDir . '/app/Http/Controllers/Admin/OrdersController.php',
     'App\\Http\\Controllers\\Admin\\PosterController' => $baseDir . '/app/Http/Controllers/Admin/PosterController.php',
+=======
+<<<<<<< HEAD
+    'App\\Http\\Controllers\\Admin\\OrdersController' => $baseDir . '/app/Http/Controllers/Admin/OrdersController.php',
+    'App\\Http\\Controllers\\Admin\\PosterController' => $baseDir . '/app/Http/Controllers/Admin/PosterController.php',
+=======
+    'App\\Http\\Controllers\\Admin\\PermissionController' => $baseDir . '/app/Http/Controllers/Admin/PermissionController.php',
+>>>>>>> c8cb5953c4d3521bbd72d5c4af441d0f6766a32d
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
     'App\\Http\\Controllers\\Admin\\RoleController' => $baseDir . '/app/Http/Controllers/Admin/RoleController.php',
     'App\\Http\\Controllers\\Admin\\TypeController' => $baseDir . '/app/Http/Controllers/Admin/TypeController.php',
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
@@ -24,8 +33,15 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+<<<<<<< HEAD
+    'App\\Http\\Controllers\\HomeIndexController' => $baseDir . '/app/Http/Controllers/HomeIndexController.php',
     'App\\Http\\Controllers\\Home\\IndexController' => $baseDir . '/app/Http/Controllers/Home/IndexController.php',
+<<<<<<< HEAD
     'App\\Http\\Controllers\\Home\\LinkController' => $baseDir . '/app/Http/Controllers/Home/LinkController.php',
+=======
+=======
+>>>>>>> c8cb5953c4d3521bbd72d5c4af441d0f6766a32d
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
     'App\\Http\\Controllers\\admin\\LoginController' => $baseDir . '/app/Http/Controllers/Admin/LoginController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -39,12 +55,25 @@ return array(
     'App\\Http\\Requests\\FormuRequest' => $baseDir . '/app/Http/Requests/FormuRequest.php',
     'App\\Http\\Requests\\GoodsRequest' => $baseDir . '/app/Http/Requests/GoodsRequest.php',
     'App\\Http\\Requests\\StoreBlogPost' => $baseDir . '/app/Http/Requests/StoreBlogPost.php',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
     'App\\Model\\Admin\\Detail' => $baseDir . '/app/Model/Admin/Detail.php',
     'App\\Model\\Admin\\Goods' => $baseDir . '/app/Model/Admin/Goods.php',
     'App\\Model\\Admin\\Goodspicture' => $baseDir . '/app/Model/Admin/Goodspicture.php',
     'App\\Model\\Admin\\Lunbo' => $baseDir . '/app/Model/Admin/Lunbo.php',
     'App\\Model\\Admin\\Orders' => $baseDir . '/app/Model/Admin/Orders.php',
     'App\\Model\\Admin\\Poster' => $baseDir . '/app/Model/Admin/Poster.php',
+<<<<<<< HEAD
+=======
+=======
+    'App\\Model\\Admin\\Goods' => $baseDir . '/app/Model/Admin/Goods.php',
+    'App\\Model\\Admin\\Goodspicture' => $baseDir . '/app/Model/Admin/Goodspicture.php',
+    'App\\Model\\Admin\\Lunbo' => $baseDir . '/app/Model/Admin/Lunbo.php',
+    'App\\Model\\Admin\\Permission' => $baseDir . '/app/Model/Admin/Permission.php',
+>>>>>>> c8cb5953c4d3521bbd72d5c4af441d0f6766a32d
+>>>>>>> 77d115b8c8fe7c841f20e3f26b1c34366821a998
     'App\\Model\\Admin\\Type' => $baseDir . '/app/Model/Admin/Type.php',
     'App\\Model\\Admin\\link' => $baseDir . '/app/Model/Admin/link.php',
     'App\\Model\\Admin\\message' => $baseDir . '/app/Model/Admin/message.php',

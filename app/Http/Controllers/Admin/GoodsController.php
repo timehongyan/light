@@ -135,7 +135,7 @@ class GoodsController extends Controller
     public function update(GoodsRequest $request, $id)
     {
         $rs = $request->except('_token', 'gpic', '_method');
-        $data = Goods::where('id',$id)->update($rs);
+        $res = Goods::where('id',$id)->update($rs);
         // dd($rs);
         if($request->hasFile('gpic')){
             $file = $request->file('gpic');
@@ -153,13 +153,16 @@ class GoodsController extends Controller
 
                 array_push($aimg, $garr);
             }
+            $res = DB::table('goodspicture')->insert($aimg);
         }
         // dd($aimg);
-        $res = DB::table('goodspicture')->insert($aimg);
+        
         if($res){
             return redirect('/admin/goods')->with('success','修改成功');
         } else {
-            unlink('.'.$rs['gpic']);
+            if($request->hasFile('gpic')){
+                unlink('.'.$rs['gpic']);
+            }
             return redirect('/admin/goods')->with('success','修改失败');
         }
     }
