@@ -38,9 +38,12 @@
 
         			<div class="mws-form-row">
         				<label class="mws-form-label">添加链接头像</label>
-        				<div class="mws-form-item" style="width:48%"	>
-        					<input type="file" name='profile' class="small" >
-        				</div>
+                        <div class="mws-form-item">
+                            <div class="fileinput-holder" style="position: relative;"><input type="file" name="profile" multiple  style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></div>
+                            <label for="picture" class="error" generated="true" style="display:none"></label>
+                        </div>
+
+        				
         			</div>       			
         			<div class="mws-form-row">
         				<label class="mws-form-label">状态</label>

@@ -38,75 +38,8 @@
 
 <title>@yield('title')</title>
 <style type="text/css">
-    body, 
-#mws-container
-{
-    background-image:url('/admin/images/core/bg/diamond_upholstery.png');
-}
 
-#mws-sidebar, 
-#mws-sidebar-bg, 
-#mws-header, 
-.mws-panel .mws-panel-header, 
-#mws-login, 
-#mws-login .mws-login-lock, 
-.ui-accordion .ui-accordion-header, 
-.ui-tabs .ui-tabs-nav, 
-.ui-datepicker, 
-.fc-event-skin, 
-.ui-dialog .ui-dialog-titlebar, 
-.jGrowl .jGrowl-notification, .jGrowl .jGrowl-closer, 
-#mws-user-tools .mws-dropdown-menu .mws-dropdown-box, 
-#mws-user-tools .mws-dropdown-menu.open .mws-dropdown-trigger
-{
-    background-color:#ff4f03;
-}
 
-#mws-header
-{
-    border-color:#69bf00;
-}
-
-.mws-panel .mws-panel-header span, 
-#mws-navigation ul li.active a, 
-#mws-navigation ul li.active span, 
-#mws-user-tools #mws-username, 
-#mws-navigation ul li .mws-nav-tooltip, 
-#mws-user-tools #mws-user-info #mws-user-functions #mws-username, 
-.ui-dialog .ui-dialog-title, 
-.ui-state-default, 
-.ui-state-active, 
-.ui-state-hover, 
-.ui-state-focus, 
-.ui-state-default a, 
-.ui-state-active a, 
-.ui-state-hover a, 
-.ui-state-focus a
-{
-    color:#10e8b9;
-    text-shadow:0 0 6px rgba(42, 59, 212, 0.5);
-}
-
-#mws-searchbox .mws-search-submit, 
-.mws-panel .mws-panel-header .mws-collapse-button span, 
-.dataTables_wrapper .dataTables_paginate .paginate_disabled_previous, 
-.dataTables_wrapper .dataTables_paginate .paginate_enabled_previous, 
-.dataTables_wrapper .dataTables_paginate .paginate_disabled_next, 
-.dataTables_wrapper .dataTables_paginate .paginate_enabled_next, 
-.dataTables_wrapper .dataTables_paginate .paginate_active, 
-.mws-table tbody tr.odd:hover td, 
-.mws-table tbody tr.even:hover td, 
-.ui-slider-horizontal .ui-slider-range, 
-.ui-slider-vertical .ui-slider-range, 
-.ui-progressbar .ui-progressbar-value, 
-.ui-datepicker td.ui-datepicker-current-day, 
-.ui-datepicker .ui-datepicker-prev, 
-.ui-datepicker .ui-datepicker-next, 
-.ui-accordion-header .ui-accordion-header-icon, 
-.ui-dialog-titlebar-close
-{
-    background-color:#69bf00;
-}
 
 </style>
 
@@ -183,9 +116,8 @@
         <div id="mws-sidebar">
             <!-- Main Navigation -->
             <div id="mws-navigation">
-
-                 <ul>
-                    <li>
+            <ul>
+                <li>
                         <a href="#"><i class="icon-users"></i>管理员管理</a>
                         <ul class='closed'>
                             <li><a href="/admins/user/create">添加管理员</a></li>
@@ -215,6 +147,7 @@
                    
                 </ul> 
 
+
                 
                 <ul>
                     <li>
@@ -231,7 +164,39 @@
                             <li><a href="/admin/goods/create">添加商品</a></li>
                         </ul>
                     </li>
-                </ul>
+
+
+                    <li>
+                        <a href="#"><i class="icon-list"></i>订单管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admins/orders">浏览订单</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-list"></i>广告管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admins/poster/create">添加广告</a></li>
+                            <li><a href="/admins/poster">浏览广告</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="#"><i class="icon-link""></i>友情链接</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/link/create">添加链接</a></li>
+                            
+                            <li><a href="/admin/link">浏览链接</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-list"></i>轮播图</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/lunbo/create">添加轮播图</a></li>
+                            
+                            <li><a href="/admin/lunbo">浏览轮播图</a></li>
+                        </ul>
+                    </li> 
             </div>         
         </div>
         

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Model\Admin\User;
 use App\Http\Controllers\Controller;
+use App\Model\Home\Link;
 
 class AjaxController extends Controller
 {
@@ -25,5 +26,16 @@ class AjaxController extends Controller
     	// }
     	// $rs = User::where('id',$id)->update();
     	// dump($rs);
+    }
+    public function alink()
+    {
+        $id = $_GET['id'];
+        $sta = $_GET['sta'];
+
+        // echo $sta;
+        // if($sta == 1){
+            $rs = Link::where('id',$id)->update(['status'=>$sta]);
+            
+         
     }
 }

@@ -24,9 +24,10 @@
         		<div class="mws-form-inline">
         			<div class="mws-form-row">
         				<label class="mws-form-label">图片链接地址</label>
-        				<div class="mws-form-item" style='width:200px'>
-        					<input type="file" name='url' class="small" >
-        				</div>
+        				<div class="mws-form-item">
+                            <div class="fileinput-holder" style="position: relative;"><input type="file" name="url" multiple  style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></div>
+                            <label for="picture" class="error" generated="true" style="display:none"></label>
+                        </div>
         			</div>
 
         			       			

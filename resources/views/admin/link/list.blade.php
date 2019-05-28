@@ -166,15 +166,14 @@
                             <img src="{{$v->profile}}" alt="" style='width:80px'>
                         </td>
 
-                        <td class=" ">
+                        <td class="ztai">
                            
                             @if($v->status == 1)
-                                开启
+                                <a  href="#" title="已启用" >已启用</a>
                             @else
-                                禁用
+                                <a  href="#" title="已禁用" >已禁用</a>
                             @endif
-                            
-
+                          
                             
                         </td>
                         <td class=" ">
@@ -218,6 +217,31 @@
 
         $('.mws-form-message').hide(1200)
     },2000)  
+
+
+
+    var ztai = $('.ztai').click(function (){
+        var id =$(this).parents('tr').find('td').eq(0).html().trim();
+        var jin = $(this).find('a');
+
+
+        if(jin.attr('title') == '已启用'){
+            $.get('/admins/alink',{sta : 0,id:id},function (data){
+                console.log(data);
+            });
+            jin.attr('title','已禁用');
+
+            jin.html('已禁用');
+            jin.css('color:red');
+        } else {
+            $.get('/admins/alink',{sta : 1,id:id},function (data){
+                console.log(data);
+            });
+            jin.attr('title','已启用');
+            jin.html('已启用');
+            
+        }
+    });
   </script>
  
 
