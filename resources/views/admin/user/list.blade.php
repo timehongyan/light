@@ -62,7 +62,7 @@
             <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
             aria-describedby="DataTables_Table_1_info">
                 <thead>
-                    <tr role="row">
+                    <tr role="row" style="">
                         <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending"
                         style="width: 20px;">
@@ -70,7 +70,7 @@
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"
-                        style="width: 90px;">
+                        style="width: 190px;">
                             用户名
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
@@ -80,12 +80,12 @@
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending"
-                        style="width: 90px;">
+                        style="width: 210px;">
                             手机号
                         </th>
                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending"
-                        style="width: 90px;">
+                        style="width: 230px;">
                             注册时间
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
@@ -100,7 +100,7 @@
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"
-                        style="width: 70px;">
+                        style="width:145px;">
                            操作
                         </th>
                     </tr>
@@ -109,9 +109,9 @@
                 <tbody role="alert" aria-live="polite" aria-relevant="all">
                 @foreach($rs as $k => $v)
                 	@if($k % 2 == 0)
- 						<tr class="odd">
+ 						<tr class="odd" style="text-align: center">
                 	@else
- 						<tr class="even">
+ 						<tr class="even" style="text-align: center">
 						
                 	@endif
                   
@@ -171,27 +171,28 @@
                          <td class=" ">
                             @if($res)
 
-                            <a href="/admins/users/header/{{$v->id}}"><img src="{{$res->header}}" style="width:50px"></a>
+                            <a href="/admins/users/header/{{$v->id}}"><img src="{{$res->header}}" style="width:50px;height: 33px"></a>
                             @else
-                            <a href="/admins/user/info/{{$v->id}}"><img src="/uploads/img_29991558270152.jpeg" style="width:50px"></a>
+                            <a href="/admins/user/info/{{$v->id}}"><img src="/default.jpg"  style="width:50;height: 33px"></a>
                             @endif
                         </td>
                         <td class=" ">
                             <span class="btn-group">
+                                 <a class="btn btn-small" title="用户权限"  href="/admins/userrole?id={{$v->id}}"><i class="icon-key-2"></i></a>
 
                                 @if($res)
-                                    <a class="btn btn-small" href="/admins/user/edit/{{$v->id}}"><i class="icon-search"></i></a>
+                                    <a class="btn btn-small"  title="用户详情" href="/admins/user/edit/{{$v->id}}"><i   class="icon-search"></i></a>
                                 @else
 
-                                    <a class="btn btn-small" href="/admins/user/info/{{$v->id}}"><i class="icon-add-contact"></i></a>
+                                    <a class="btn btn-small" title="添加详情" href="/admins/user/info/{{$v->id}}"><i class="icon-add-contact"></i></a>
                                 @endif
 
-                                <a class="btn btn-small" href="/admins/user/{{$v->id}}/edit"><i class="icon-pencil"></i></a>
+                                <a class="btn btn-small"  title="修改用户" href="/admins/user/{{$v->id}}/edit"><i class="icon-pencil"></i></a>
 
                                 <form action="/admins/user/{{$v->id}}" method='post' style='display: inline'>
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
-                                    <button class="btn btn-small"><i class="icon-trash"></i></button>
+                                    <button class="btn btn-small" title="删除用户"><i   class="icon-trash"></i></button>
                                 </form>
 
                             </span>

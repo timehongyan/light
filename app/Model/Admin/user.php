@@ -19,4 +19,16 @@ class user extends Model
     public $timestamps = false;
 
     protected $guarded = [];
+
+     /**
+     *  用户和角色的关联
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function user_role()
+    {
+        return $this->belongsToMany('App\Model\Admin\Role','user_role', 'userid', 'roleid');
+    }
+
+
 }

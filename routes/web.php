@@ -25,24 +25,10 @@ Route::get('/config', function (){
 Route::get('/admins/login', 'Admin\LoginController@login');
 Route::post('admins/dologin', 'Admin\LoginController@dologin');
 Route::get('admins/captcha', 'Admin\LoginController@captcha');
-
+Route::get('/admins/showper','Admin\RoleController@showper');	
 
 Route::group([], function(){
-	Route::get('/admin/index', 'Admin\IndexController@index');
-	//商品分类查看
-	Route::resource('/admin/type', 'Admin\TypeController');
-	// 分类状态路由
-	Route::get('/admin/ajaxup', 'Admin\TypeController@ajaxup');
 
-	// ajax请求路由
-	//商品名称无刷新修改
-	Route::get('/admin/goods/ajaxgs', 'Admin\GoodsController@ajaxgs');
-	//商品图片ajax删除
-	Route::get('/admin/goods/ajaxdelete', 'Admin\GoodsController@ajaxdelete');
-
-
-	//商品详情
-	Route::resource('/admin/goods', 'Admin\GoodsController');
 });
 
 
@@ -50,13 +36,15 @@ Route::group([], function(){
 
 //后台管理
 //后台中间件
-Route::group(['middleware'=>'/admins/login'], function (){
-	Route::any('ceshi', 'Admin\LoginController@ceshi');
+//,'roleper'
+Route::group(['middleware'=>['/admins/login']], function (){
 	//后台首页
 	Route::any('/admins', 'Admin\IndexController@index');
 
 	//后台用户
 	Route::resource('/admins/user', 'Admin\UserController');
+	Route::get('/admins/userrole','Admin\UserController@user_role');
+	Route::post('/admins/douserrole','Admin\UserController@do_user_role');
 	//修改头像
 	Route::get('admins/header', 'Admin\LoginController@header');
 	Route::post('admins/upload', 'Admin\LoginController@upload');
@@ -65,6 +53,7 @@ Route::group(['middleware'=>'/admins/login'], function (){
 	Route::post('admin/dopass', 'Admin\LoginController@dopass');
 	//后台退出
 	Route::get('admins/logout', 'Admin\LoginController@logout');
+
 
 	//用户详情
 	Route::get('admins/user/info/{id}', 'Admin\InfoController@create');
@@ -77,8 +66,34 @@ Route::group(['middleware'=>'/admins/login'], function (){
 	//ajax修改状态
 	Route::get('admins/ajaxs', 'Admin\AjaxController@ajaxs');
 
+
 	//角色管理
 	Route::resource('admins/role', 'Admin\RoleController');
+	Route::get('admins/roleper', 'Admin\RoleController@role_per');
+	Route::post('/admins/doroleper','Admin\RoleController@doroleper');
+
+
+	//权限管理
+	Route::resource('admins/permission', 'Admin\PermissionController');
+
+
+	Route::get('/admin/index', 'Admin\IndexController@index');
+	//商品分类查看
+	Route::resource('/admin/type', 'Admin\TypeController');
+	// 分类状态路由
+	Route::get('/admin/ajaxup', 'Admin\TypeController@ajaxup');
+
+
+
+	// ajax请求路由
+	//商品名称无刷新修改
+	Route::get('/admin/goods/ajaxgs', 'Admin\GoodsController@ajaxgs');
+	//商品图片ajax删除
+	Route::get('/admin/goods/ajaxdelete', 'Admin\GoodsController@ajaxdelete');
+
+
+	//商品详情
+	Route::resource('/admin/goods', 'Admin\GoodsController');
 
 });
 
@@ -87,7 +102,11 @@ Route::group(['middleware'=>'/admins/login'], function (){
 
 //前台
 // Route::group([], function (){
-	Route::get('home/index', 'Home\IndexController@index');
+	// 前台首页
+	Route::get('homes', 'Home\IndexController@index');
+
+	//商品列表
+	Route::resource('homes/goodsList', 'Home\GoodsListController');
 // });
-// 前台首页
+
 

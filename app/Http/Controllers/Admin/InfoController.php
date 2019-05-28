@@ -48,9 +48,9 @@ class InfoController extends Controller
             //获取后缀
             $suffix = $file->getClientOriginalExtension();
 
-            $file->move('./uploads',$name.'.'.$suffix);
+            $file->move('./uploads/users',$name.'.'.$suffix);
 
-            $rs['header'] = '/uploads/'.$name.'.'.$suffix;
+            $rs['header'] = '/uploads/users/'.$name.'.'.$suffix;
 
             //存放到数据库中
             $data = Message::create($rs);
@@ -97,13 +97,13 @@ class InfoController extends Controller
         //获取后缀
         $suffix = $file->getClientOriginalExtension();
 
-        $file->move('./uploads',$name.'.'.$suffix);
+        $file->move('./uploads/users',$name.'.'.$suffix);
 
-        echo '/uploads/'.$name.'.'.$suffix;
+        echo '/uploads/users/'.$name.'.'.$suffix;
 
 
         //修改数据表里面的信息
-        $rs['header'] = '/uploads/'.$name.'.'.$suffix;
+        $rs['header'] = '/uploads/users/'.$name.'.'.$suffix;
 
 
 
@@ -132,8 +132,32 @@ class InfoController extends Controller
 
     public function infoupdate(Request $request)
     {
-      $arr = $request->except('_token','uid');
       $uid = $request->input('uid');
+      $res = Message::where('uid',$uid)->first();
+
+      $arr = $request->except('_token','uid');
+
+         //处理图片上传
+        if($request->hasFile('header')){
+            unlink('.'.$res->header);
+            //获取图片上传的信息
+            $file = $request->file('header');
+
+            //名字
+            $name = 'img_'.rand(1111,9999).time();
+
+            //获取后缀
+            $suffix = $file->getClientOriginalExtension();
+
+            $file->move('./uploads/users',$name.'.'.$suffix);
+
+            $arr['header'] = '/uploads/users/'.$name.'.'.$suffix;
+
+            //存放到数据库中
+        }
+
+      
+
       $rs = Message::where('uid',$uid)->update($arr);
       if($rs){
         return redirect('/admins/user')->with('success','用户详情修改成功');
