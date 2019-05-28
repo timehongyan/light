@@ -135,7 +135,11 @@ input{-webkit-appearance: none;}
 	width: 100%;
 	font-size: 12px;
 	position: absolute;
+<<<<<<< HEAD
 	z-index: 3;
+=======
+	z-index: 2;
+>>>>>>> c8cb5953c4d3521bbd72d5c4af441d0f6766a32d
 	left: 0;
 	top: 87px;
 	box-shadow:2px 2px 5px  #f0f0f0;

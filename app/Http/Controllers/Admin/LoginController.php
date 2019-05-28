@@ -115,10 +115,16 @@ class LoginController extends Controller
         ->select('users.*','message.header')
         ->where('users.id','=',session('uid'))
         ->first();
-        return view('admin.header',[
+        $id = session('uid');
+        if($rs){
+           return view('admin.header',[
             'title'=>'修改头像',
             'rs'=>$rs
-        ]);
+          ]);
+        } else {
+          return redirect("admins/user/info/$id")->with('error','请上传头像');
+        }
+       
     }
 
       /**
@@ -128,6 +134,7 @@ class LoginController extends Controller
      */
       public function upload(Request $request)
       {
+
         $res = Message::where('uid',session('uid'))->first();
         unlink('./'.$res->header);
         $file = $request->file('file_upload');

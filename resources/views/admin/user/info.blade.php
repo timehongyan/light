@@ -19,6 +19,20 @@
 		@endif
 
 
+        @if(session('error'))
+        <div class="mws-form-message warning">
+             {{session('error')}}
+        </div>
+        @endif
+
+         @if(session('success'))
+        <div class="mws-form-message success">
+             {{session('success')}}
+        </div>
+        @endif
+
+
+
         <div class="mws-panel-body no-padding">
         	<form class="mws-form" action="/admins/user/store" method='post' enctype='multipart/form-data'>
                 <input type="hidden" name="uid" value="{{$uid}}">
@@ -79,10 +93,10 @@
     },3000)*/
 
     setTimeout(function(){
-        // $('.mws-form-message').slideUp(2000);
-        $('.mws-form-message').fadeOut(2000);
+        $('.mws-form-message').slideUp(1000);
+        // $('.mws-form-message').fadeOut(2000);
 
-    },3000)
+    },2000)
 
     // delay(3000).
 

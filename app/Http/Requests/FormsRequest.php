@@ -25,7 +25,7 @@ class FormsRequest extends FormRequest
     {
         return [
              'username' => 'required|regex:/^\w{6,12}$/',
-            'password' => 'required|regex:/^\S{8,16}$/',
+            // 'password' => 'required|regex:/^\S{8,16}$/',
             'repass'=>'same:password',
             'phone'=>'required|regex:/^1[3456789]\d{9}$/'
         ];

@@ -57,6 +57,7 @@
                         <label class="mws-form-label">头像</label>
                         <div class="mws-form-item">
                             <img src="{{$rs->header}}" style="width:190px">
+                            <input type="file" name='header' style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;">
                         </div>
                     </div>	
         		</div>
@@ -64,7 +65,7 @@
         			{{csrf_field()}}
                     <input type="submit" value="修改" class="btn btn-primary">
 
-        			
+
         		</div>
         	</form>
         </div>    	

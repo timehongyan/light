@@ -150,7 +150,7 @@
                     @if($rs)
                         <a href="{{$rs->header}}" target="_blank"><img src="{{$rs->header}}" alt="User Photo"></a>
                     @else
-                        <img src="/uploads/img_44231558337773.jpg" alt="User Photo"></a>
+                        <img src="/default.jpg" alt="User Photo"></a>
                         
                         
                     @endif
@@ -159,8 +159,19 @@
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
+<<<<<<< HEAD
 
                         {{--$res->username--}}
+=======
+                        @if($res)
+                        {{$res->username}}
+
+                        @else
+                        XXXX欢迎您
+
+                        @endif
+                        
+>>>>>>> c8cb5953c4d3521bbd72d5c4af441d0f6766a32d
                     </div>
                     <ul>
                         <li><a href="/admins/header">修改头像</a></li>
@@ -208,8 +219,8 @@
                     <li>
                         <a href="#"><i class="icon-key"></i>权限管理</a>
                         <ul class='closed'>
-                            <li><a href="/admins/user/create">添加权限</a></li>
-                            <li><a href="/admins/user">浏览权限</a></li>
+                            <li><a href="/admins/permission/create">添加权限</a></li>
+                            <li><a href="/admins/permission">浏览权限</a></li>
                         </ul>
                     </li>
                    
